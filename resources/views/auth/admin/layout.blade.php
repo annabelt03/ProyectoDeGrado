@@ -18,7 +18,7 @@
       --beige: #F5F5DC;           /* Beige arena */
       --text-dark: #2E2E2E;
       --text-muted: #5C5C5C;
-      
+
       --sidebar-bg: var(--dark-green);
       --sidebar-bg-2: var(--primary-green);
       --brand: #e6fff7;
@@ -28,7 +28,7 @@
       --muted: var(--text-muted);
       --kpi: var(--primary-green);
     }
-    
+
     html,body{height:100%}
     body{background:var(--beige);color:var(--ink)}
     .layout{
@@ -192,8 +192,8 @@
       <i class="fa-solid fa-chevron-down"></i>
     </a>
     <div class="collapse {{ $puntosOpen ? 'show' : '' }}" id="menuPuntos">
-      <a class="item ms-4 {{ request()->routeIs('admin.puntos.index') ? 'active' : '' }}"
-         href="{{ route('admin.puntos.index') }}">
+      <a class="item ms-4 {{ request()->routeIs('admin.estadisticas.index') ? 'active' : '' }}"
+         href="{{ route('admin.estadisticas.index') }}">
         <i class="fa-regular fa-circle"></i> Todos los registros
       </a>
       <a class="item ms-4 {{ request()->routeIs('admin.puntos.estadisticas') ? 'active' : '' }}"

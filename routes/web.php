@@ -13,6 +13,8 @@ use App\Http\Controllers\Usuario\CanjeoController;
 use App\Http\Controllers\Admin\PuntosController;
 use App\Http\Controllers\Admin\AdminCanjeoController;
 use App\Http\Controllers\Usuario\PuntosCanjeosController;
+use App\Http\Controllers\Admin\EstadisticasController;
+use App\Http\Controllers\Admin\ReportesController;
 
 
 
@@ -51,12 +53,31 @@ Route::middleware(['auth', 'role:administrador'])->prefix('admin')->name('admin.
 
      // productos
     Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
-Route::get('/productos/crear', [ProductoController::class, 'create'])->name('productos.create');
-Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');
-Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('productos.show');
-Route::get('/productos/{id}/editar', [ProductoController::class, 'edit'])->name('productos.edit');
-Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('productos.update');
-Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+    Route::get('/productos/crear', [ProductoController::class, 'create'])->name('productos.create');
+    Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');
+    Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('productos.show');
+    Route::get('/productos/{id}/editar', [ProductoController::class, 'edit'])->name('productos.edit');
+    Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('productos.update');
+    Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+
+// Rutas de estadísticas
+
+    Route::get('/estadisticas', [EstadisticasController::class, 'index'])->name('estadisticas.index');
+    Route::get('/estadisticas/puntos', [EstadisticasController::class, 'puntos'])->name('estadisticas.puntos');
+    Route::get('/estadisticas/canjes', [EstadisticasController::class, 'canjes'])->name('estadisticas.canjes');
+    Route::get('/estadisticas/usuarios', [EstadisticasController::class, 'usuarios'])->name('estadisticas.usuarios');
+
+    // APIs para gráficos
+    Route::get('/estadisticas/api/puntos-diarios', [EstadisticasController::class, 'apiPuntosDiarios'])->name('estadisticas.api.puntos');
+    Route::get('/estadisticas/api/canjes-diarios', [EstadisticasController::class, 'apiCanjesDiarios'])->name('estadisticas.api.canjes');
+
+
+    // Rutas de reportes (opcional)
+
+    Route::get('/reportes/exportar-puntos', [ReportesController::class, 'exportarPuntos'])->name('reportes.exportar.puntos');
+    Route::get('/reportes/exportar-canjes', [ReportesController::class, 'exportarCanjes'])->name('reportes.exportar.canjes');
+
+
 
 // Rutas adicionales
 Route::patch('/productos/{id}/toggle-status', [ProductoController::class, 'toggleStatus'])->name('productos.toggle-status');

@@ -63,4 +63,6 @@ class RegistroCanjeo extends Model
     {
         return number_format($this->puntos_totales, 0);
     }
+
+
 }

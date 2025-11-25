@@ -165,4 +165,9 @@ class Usuario extends Authenticatable
     {
         return $query->where('numeroRFID', $rfid);
     }
+    public function registroPuntos()
+{
+    return $this->hasMany(RegistroPuntos::class);
+}
+
 }

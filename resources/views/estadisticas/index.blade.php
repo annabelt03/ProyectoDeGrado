@@ -81,10 +81,9 @@
     </div>
 </div>
 
-@section('scripts')
 <script>
     // Gráfico de puntos
-    fetch("{{ route('estadisticas.api.puntos') }}")
+    fetch("{{ route('admin.estadisticas.api.puntos') }}")
         .then(response => response.json())
         .then(data => {
             const ctx = document.getElementById('puntosChart').getContext('2d');
@@ -112,7 +111,7 @@
         });
 
     // Gráfico de canjes
-    fetch("{{ route('estadisticas.api.canjes') }}")
+    fetch("{{ route('admin.estadisticas.api.canjes') }}")
         .then(response => response.json())
         .then(data => {
             const ctx = document.getElementById('canjesChart').getContext('2d');
@@ -137,5 +136,5 @@
             });
         });
 </script>
-@endsection
+
 @endsection

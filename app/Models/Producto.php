@@ -59,4 +59,8 @@ class Producto extends Model
         }
         return null;
     }
+    public function registros()
+    {
+        return $this->hasMany(Registro::class);
+    }
 }

@@ -8,6 +8,8 @@
   {{-- Bootstrap + Icons --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     :root{
@@ -192,8 +194,8 @@
       <i class="fa-solid fa-chevron-down"></i>
     </a>
     <div class="collapse {{ $puntosOpen ? 'show' : '' }}" id="menuPuntos">
-      <a class="item ms-4 {{ request()->routeIs('admin.estadisticas.index') ? 'active' : '' }}"
-         href="{{ route('admin.estadisticas.index') }}">
+      <a class="item ms-4 {{ request()->routeIs('admin.puntos.index') ? 'active' : '' }}"
+         href="{{ route('admin.puntos.index') }}">
         <i class="fa-regular fa-circle"></i> Todos los registros
       </a>
       <a class="item ms-4 {{ request()->routeIs('admin.puntos.estadisticas') ? 'active' : '' }}"
@@ -236,11 +238,11 @@
     </a>
     <div class="collapse {{ $statsOpen ? 'show' : '' }}" id="menuStats">
       <a class="item ms-4 {{ request('panel')==='stats.top' ? 'active' : '' }}"
-         href="{{ route('admin.dashboard',['panel'=>'stats.top','range'=>request('range','week')]) }}">
+         href="{{ route('admin.estadisticas.index',['panel'=>'stats.top','range'=>request('range','week')]) }}">
         <i class="fa-regular fa-circle"></i> Top 5 recolectores
       </a>
       <a class="item ms-4 {{ request('panel')==='stats.products' ? 'active' : '' }}"
-         href="{{ route('admin.dashboard',['panel'=>'stats.products','range'=>request('range','week')]) }}">
+         href="{{ route('admin.estadisticas.index',['panel'=>'stats.products','range'=>request('range','week')]) }}">
         <i class="fa-regular fa-circle"></i> Productos más canjeados
       </a>
     </div>
